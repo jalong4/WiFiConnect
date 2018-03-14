@@ -12,6 +12,8 @@
 		797F917A20572A3200A27CA6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 797F917820572A3200A27CA6 /* Main.storyboard */; };
 		797F917C20572A3200A27CA6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 797F917B20572A3200A27CA6 /* Assets.xcassets */; };
 		797F917F20572A3200A27CA6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 797F917D20572A3200A27CA6 /* LaunchScreen.storyboard */; };
+		797F918820572B3C00A27CA6 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 797F918720572B3C00A27CA6 /* Extensions.swift */; };
+		797F918B20573BAB00A27CA6 /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 797F918A20573BAB00A27CA6 /* NetworkExtension.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,9 @@
 		797F917B20572A3200A27CA6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		797F917E20572A3200A27CA6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		797F918020572A3300A27CA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		797F918720572B3C00A27CA6 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		797F918A20573BAB00A27CA6 /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = System/Library/Frameworks/NetworkExtension.framework; sourceTree = SDKROOT; };
+		797F918C20573BAB00A27CA6 /* WiFiConnect.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WiFiConnect.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +34,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				797F918B20573BAB00A27CA6 /* NetworkExtension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +46,7 @@
 			children = (
 				797F917320572A3200A27CA6 /* WiFiConnect */,
 				797F917220572A3200A27CA6 /* Products */,
+				797F918920573BAB00A27CA6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,6 +61,8 @@
 		797F917320572A3200A27CA6 /* WiFiConnect */ = {
 			isa = PBXGroup;
 			children = (
+				797F918C20573BAB00A27CA6 /* WiFiConnect.entitlements */,
+				797F918620572B2400A27CA6 /* Utils */,
 				797F917420572A3200A27CA6 /* AppDelegate.swift */,
 				797F917620572A3200A27CA6 /* ViewController.swift */,
 				797F917820572A3200A27CA6 /* Main.storyboard */,
@@ -62,6 +71,22 @@
 				797F918020572A3300A27CA6 /* Info.plist */,
 			);
 			path = WiFiConnect;
+			sourceTree = "<group>";
+		};
+		797F918620572B2400A27CA6 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				797F918720572B3C00A27CA6 /* Extensions.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		797F918920573BAB00A27CA6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				797F918A20573BAB00A27CA6 /* NetworkExtension.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -97,6 +122,14 @@
 					797F917020572A3200A27CA6 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.HotspotConfiguration = {
+								enabled = 1;
+							};
+							com.apple.NetworkExtensions.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -137,6 +170,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				797F917720572A3200A27CA6 /* ViewController.swift in Sources */,
+				797F918820572B3C00A27CA6 /* Extensions.swift in Sources */,
 				797F917520572A3200A27CA6 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -274,6 +308,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = WiFiConnect/WiFiConnect.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 96F242M6L9;
 				INFOPLIST_FILE = WiFiConnect/Info.plist;
@@ -289,6 +324,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = WiFiConnect/WiFiConnect.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 96F242M6L9;
 				INFOPLIST_FILE = WiFiConnect/Info.plist;
